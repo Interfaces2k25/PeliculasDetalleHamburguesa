@@ -1,4 +1,5 @@
-import Interprete from "./Interprete"
+import Interprete from "../pages/Interprete"
+import Card from "./Card"
 
 
 
