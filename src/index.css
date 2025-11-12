@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+.contenedor__h1{
+  font-family: var(--heading-h1-font-family);
+  font-size:  var(--heading-h1-font-size);
+  font-style: var(--heading-h1-font-style);
+  font-weight: var(--heading-h1-font-weight);
+  letter-spacing: var(--heading-h1-letter-spacing);
+  line-height: var(--heading-h1-line-height);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+body{
+  background-color: beige;
+}
+
+.titulo2{
+text-align: center;
+}
