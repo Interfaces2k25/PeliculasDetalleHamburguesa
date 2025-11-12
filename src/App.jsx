@@ -13,7 +13,7 @@ function App() {
         <div className="flex justify-center items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
 
-
+            {/* MOSTRAR INTÉRPETES */}
             {/* {peliculas.map((pelicula) => //Recorrer películas
               pelicula.actores.map((actor, index) => //Recorrer cada actor
                 <Card
@@ -24,6 +24,7 @@ function App() {
                 </Card>
               ))} */}
 
+            {/* MOSTRAR PELÍCULAS */}
             {peliculas.map((pelicula) => (
               <Card
                 key={pelicula.id}
