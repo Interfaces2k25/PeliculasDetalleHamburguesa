@@ -18,12 +18,14 @@ function App() {
 
       <Contenedor>
         <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/interpretes" element={<Interprete />} />
-          <Route path="/peliculas" element={<Pelicula />} />
-          <Route path="/admin" element={<Admin />} />
+          {/* <Route element={<Contenedor />}> */}
+            <Route path="/" element={<Inicio />} />
+            <Route path="/interpretes" element={<Interprete />} />
+            <Route path="/peliculas" element={<Pelicula />} />
+            <Route path="/admin" element={<Admin />} />
+          {/* </Route> */}
 
-          <Route path="*" element={<ErrorPage />} />
+          {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
       </Contenedor>
 
@@ -33,18 +35,18 @@ function App() {
       {/* <h1 className="contenedor__h1">Mis Intérpretes</h1>
       <h2 className="titulo2">Listado de intérpretes disponibles:</h2>
       <Contenedor> */}
-        {/* Centrar todas las tarjetas en el centro */}
-        {/* <div className="flex justify-center items-center">
+      {/* Centrar todas las tarjetas en el centro */}
+      {/* <div className="flex justify-center items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
 
             <Interprete /> */}
-            {/* <Pelicula /> */}
+      {/* <Pelicula /> */}
 
-          {/* </div>
+      {/* </div>
         </div>
       </Contenedor> */}
 
-      
+
     </>
   )
 }
