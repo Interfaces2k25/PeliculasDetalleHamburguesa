@@ -1,8 +1,6 @@
 import Interprete from "../pages/Interprete"
 import Card from "./Card"
 
-
-
 function Contenedor({ children }) {
 
   return (
