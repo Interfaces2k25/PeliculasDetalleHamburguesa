@@ -7,11 +7,8 @@ function Navbar() {
       aria-label="Barra de navegación"
     >
       <Link to="/">Inicio</Link>
-
       <Link to="/peliculas">Películas</Link>
-
       <Link to="/interpretes">Intérpretes</Link>
-
       <Link to="/admin">Admin</Link>
     </nav>
   );

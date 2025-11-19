@@ -9,6 +9,7 @@ function Interprete() {
       </div>
 
       {/* MOSTRAR INTÉRPETES */}
+      <div className="w-full mx-auto px-4 flex flex-wrap gap-6 justify-center">
       {peliculas.map((pelicula) => //Recorrer películas
         pelicula.actores.map((actor, index) => //Recorrer cada actor
           <Card
@@ -18,6 +19,7 @@ function Interprete() {
             {actor.biografia}
           </Card>
         ))}
+        </div>
     </>
   )
 

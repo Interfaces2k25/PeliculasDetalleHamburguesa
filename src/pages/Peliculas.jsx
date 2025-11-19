@@ -9,6 +9,8 @@ function Pelicula() {
         </div>
         
             {/* MOSTRAR PELÍCULAS */}
+            {/* mx-auto centra toda la fila en el centro */}
+            <div className="w-full mx-auto px-4 flex flex-wrap gap-6 justify-center">
             {peliculas.map((pelicula) => (
               <Card
                 key={pelicula.id}
@@ -21,6 +23,7 @@ function Pelicula() {
                 <p><strong>Recaudación:</strong> {pelicula.recaudacion}</p>
               </Card>
             ))}
+            </div>
         </>
     )
 }
