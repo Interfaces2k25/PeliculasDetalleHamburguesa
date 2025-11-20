@@ -15,7 +15,9 @@ function Pelicula() {
               <Card
                 key={pelicula.id}
                 nombre={pelicula.nombre}
-                foto={pelicula.cartelera}>
+                foto={pelicula.cartelera}
+                //Ruta al detalle de la película
+                to={`/peliculas/${pelicula.id}`}> 
 
                 <p><strong>Director:</strong> {pelicula.director}</p>
                 <p><strong>Género:</strong> {pelicula.clasificacion}</p>

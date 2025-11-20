@@ -2,24 +2,30 @@ import peliculas from "../data/peliculas"
 import Card from "../components/Card.jsx"
 
 function Interprete() {
+  const todosLosActores = peliculas.flatMap(p => p.actores);
+
+
   return (
     <>
+
       <div>
         <h1 className="text-4xl font-bold text-center mt-10 mb-6">Intérpretes Destacados</h1>
       </div>
 
       {/* MOSTRAR INTÉRPETES */}
       <div className="w-full mx-auto px-4 flex flex-wrap gap-6 justify-center">
-      {peliculas.map((pelicula) => //Recorrer películas
-        pelicula.actores.map((actor, index) => //Recorrer cada actor
-          <Card
-            key={index}
-            nombre={actor.nombre}
-            foto={actor.imagen} >
-            {actor.biografia}
-          </Card>
-        ))}
-        </div>
+        {peliculas.map((pelicula) => //Recorrer películas
+          pelicula.actores.map((actor, index) => //Recorrer cada actor
+            <Card
+              key={index}
+              nombre={actor.nombre}
+              foto={actor.imagen}
+              //Ruta al detalle del intérprete
+              to={`/interpretes/${index}`} >
+              {actor.biografia}
+            </Card>
+          ))}
+      </div>
     </>
   )
 
