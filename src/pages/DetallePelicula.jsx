@@ -8,6 +8,10 @@ function DetallePelicula() {
 
   return (
     <div>
+      <button>
+        <a href="/peliculas" className="text-black hover:underline ml-4 bg-white p-2 rounded-2xl">← Volver a películas</a>
+      </button>
+
       <h1 className="text-4xl font-bold text-center mt-10 mb-6">Detalle de la Película</h1>
       {/* <p className="text-center">ID de la película: {id}</p> */}
 

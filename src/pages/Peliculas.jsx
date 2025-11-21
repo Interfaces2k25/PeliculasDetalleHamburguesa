@@ -4,6 +4,11 @@ import Card from "../components/Card.jsx"
 function Pelicula() {
     return (
         <>
+
+      <button>
+        <a href="/" className="text-black hover:underline ml-4 bg-white p-2 rounded-2xl">← Volver al inicio</a>
+      </button>
+
         <div>
           <h1 className="text-4xl font-bold text-center mt-10 mb-6">Películas Destacadas</h1>
         </div>

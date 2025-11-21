@@ -18,6 +18,11 @@ function DetalleInterprete() {
 
   return (
     <div>
+      {/* Enlace para volver a la página de intérpretes */}
+      <button>
+        <a href="/interpretes" className="text-black hover:underline ml-4 bg-white p-2 rounded-2xl">← Volver a intérpretes</a>
+      </button>
+
       <h1 className="text-4xl font-bold text-center mt-10 mb-6">Detalle del Intérprete</h1>
 
 
