@@ -1,104 +1,38 @@
-// import{ useParams } from 'react-router-dom';
-// import peliculas from "../data/peliculas"
-
-// function DetalleInterprete() {
-//   const { id } = useParams();
-//   const index = parseInt(id);
-
-//     // Array global con todos los actores
-//     const todosLosActores = peliculas.flatMap(p => p.actores);
-
-//     // Actor seleccionado por index
-//     const interprete = todosLosActores[index];
-
-//     // Películas donde aparece
-//     const peliculasDelActor = peliculas.filter(p =>
-//         p.actores.includes(interprete)
-//     );
-
-
-//   return (
-//     <div>
-//       <h1 className="text-4xl font-bold text-center mt-10 mb-6">Detalle del Intérprete</h1>
-
-
-//       <main className="w-full mx-auto px-4 text-center">
-
-//         {/* Imagen debajo del título */}
-//         <img
-//           src={interprete.imagen}
-//           alt={interprete.nombre}
-//           className="w-80 h-90 object-cover rounded-2xl mb-6 mx-auto" //mx-auto para centrar imagen
-//         />
-
-//         {/* Nombre arriba */}
-//         <h1 className="text-4xl font-bold mb-6">{interprete.nombre}</h1>
-
-
-//         <section className="space-y-3 text-lg text-center">
-//           <p><strong>Fecha de nacimiento:</strong> {interprete.fechaNacimiento}</p>
-
-//           <div>
-//             <h2 className="text-2xl font-bold mt-6 mb-2">Biografía</h2>
-//             <p>{interprete.biografia}</p>
-//           </div>
-
-//           <div>
-//             <h2 className="text-2xl font-bold mt-6 mb-2">Películas</h2>
-//             <div className="w-full mx-auto px-4 flex flex-wrap gap-6 justify-center">
-//             {peliculasDelActor.map(p => (
-//                 <div key={p.index} className="text-center">
-//                   <img
-//                     src={p.cartelera}
-//                     alt={p.nombre}
-//                     className="w-40 h-60 object-cover rounded-xl mx-auto mb-2"
-//                   />
-//                   <p className="font-semibold">{p.nombre}</p>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </section>
-//       </main>
-//     </div>
-//   );
- 
-// }
-
-// export default DetalleInterprete;
-
-import { useParams } from "react-router-dom";
-import peliculas from "../data/peliculas";
+import{ useParams } from 'react-router-dom';
+import peliculas from "../data/peliculas"
 
 function DetalleInterprete() {
   const { id } = useParams();
-  const index = parseInt(id);
+  const index = parseInt(id); //Obtenemos el id de la URL y lo convertimos a entero
 
-  // Array global de actores
-  const todosLosActores = peliculas.flatMap(p => p.actores);
+    // Array global con todos los actores
+    const todosLosActores = peliculas.flatMap(p => p.actores);
 
-  // Actor seleccionado por índice
-  const interprete = todosLosActores[index];
+    // Actor que queremos mostrar seleccionado por index
+    const interprete = todosLosActores[index];
 
-  // Películas donde aparece
-  const peliculasDelActor = peliculas.filter(p =>
-    p.actores.includes(interprete)
-  );
+    // Películas donde aparece
+    const peliculasDelActor = peliculas.filter(p =>
+        p.actores.includes(interprete)
+    );
 
   return (
     <div>
-      <h1 className="text-4xl font-bold text-center mt-10 mb-6">
-        Detalle del Intérprete
-      </h1>
+      <h1 className="text-4xl font-bold text-center mt-10 mb-6">Detalle del Intérprete</h1>
+
 
       <main className="w-full mx-auto px-4 text-center">
+
+        {/* Imagen debajo del título */}
         <img
           src={interprete.imagen}
           alt={interprete.nombre}
-          className="w-80 h-90 object-cover rounded-2xl mb-6 mx-auto"
+          className="w-80 h-90 object-cover rounded-2xl mb-6 mx-auto" //mx-auto para centrar imagen
         />
 
+        {/* Nombre arriba */}
         <h1 className="text-4xl font-bold mb-6">{interprete.nombre}</h1>
+
 
         <section className="space-y-3 text-lg text-center">
           <p><strong>Fecha de nacimiento:</strong> {interprete.fechaNacimiento}</p>
@@ -111,8 +45,8 @@ function DetalleInterprete() {
           <div>
             <h2 className="text-2xl font-bold mt-6 mb-2">Películas</h2>
             <div className="w-full mx-auto px-4 flex flex-wrap gap-6 justify-center">
-              {peliculasDelActor.map((p, i) => (
-                <div key={i} className="text-center">
+            {peliculasDelActor.map(p => (
+                <div key={p.index} className="text-center">
                   <img
                     src={p.cartelera}
                     alt={p.nombre}
@@ -127,6 +61,71 @@ function DetalleInterprete() {
       </main>
     </div>
   );
+ 
 }
 
 export default DetalleInterprete;
+
+// import { useParams } from "react-router-dom";
+// import peliculas from "../data/peliculas";
+
+// function DetalleInterprete() {
+//   const { id } = useParams();
+//   const index = parseInt(id);
+
+//   // Array global de actores
+//   const todosLosActores = peliculas.flatMap(p => p.actores);
+
+//   // Actor seleccionado por índice
+//   const interprete = todosLosActores[index];
+
+//   // Películas donde aparece
+//   const peliculasDelActor = peliculas.filter(p =>
+//     p.actores.includes(interprete)
+//   );
+
+//   return (
+//     <div>
+//       <h1 className="text-4xl font-bold text-center mt-10 mb-6">
+//         Detalle del Intérprete
+//       </h1>
+
+//       <main className="w-full mx-auto px-4 text-center">
+//         <img
+//           src={interprete.imagen}
+//           alt={interprete.nombre}
+//           className="w-80 h-90 object-cover rounded-2xl mb-6 mx-auto"
+//         />
+
+//         <h1 className="text-4xl font-bold mb-6">{interprete.nombre}</h1>
+
+//         <section className="space-y-3 text-lg text-center">
+//           <p><strong>Fecha de nacimiento:</strong> {interprete.fechaNacimiento}</p>
+
+//           <div>
+//             <h2 className="text-2xl font-bold mt-6 mb-2">Biografía</h2>
+//             <p>{interprete.biografia}</p>
+//           </div>
+
+//           <div>
+//             <h2 className="text-2xl font-bold mt-6 mb-2">Películas</h2>
+//             <div className="w-full mx-auto px-4 flex flex-wrap gap-6 justify-center">
+//               {peliculasDelActor.map((p, i) => (
+//                 <div key={i} className="text-center">
+//                   <img
+//                     src={p.cartelera}
+//                     alt={p.nombre}
+//                     className="w-40 h-60 object-cover rounded-xl mx-auto mb-2"
+//                   />
+//                   <p className="font-semibold">{p.nombre}</p>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         </section>
+//       </main>
+//     </div>
+//   );
+// }
+
+// export default DetalleInterprete;

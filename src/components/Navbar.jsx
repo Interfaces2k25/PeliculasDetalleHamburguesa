@@ -3,36 +3,35 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
-
-  const [open, setOpen] = useState(false);
-  <>
-    return (
-
+  const [open, setOpen] = useState(false)
+  
+  return (
+    // Header con el fondo en blanco y sombra para el menú hamburguesa y el NavBar normal
+  <header className="w-full bg-white p-4 shadow-md">
+    
     {/* Botón hamburguesa que sea invisible en pantallas medianas y grandes */}
-    <button onClick={() => setOpen(!open)} className="text-3xl md:hidden">
-      ☰
-    </button>
+    <button onClick={() => setOpen(!open)} className="text-3xl md:hidden" aria-lablel="Menú hamburguesa" 
+    aria-expanded={open} aria-controls="menu-movil">☰</button>
 
-    {/* NavBar normal en pantallas medianas y grandes */}
-    <nav
-      className="w-full bg-white text-black p-4 shadow-lg justify-center gap-8 hidden md:flex text-lg"
-      aria-label="Barra de navegación"
-    >
-      <Link to="/">Inicio</Link>
-      <Link to="/peliculas">Películas</Link>
-      <Link to="/interpretes">Intérpretes</Link>
-      <Link to="/admin">Admin</Link>
+    {/* NavBar normal en pantallas medianas y grandes, en pequeñas que se esconda */}
+    <nav className="hidden md:flex gap-8 text-lg flex-1 justify-center" aria-label="Barra de navegación">
+      {/* Cuando se pase por encima el ratón que se subraye */}
+      <Link to="/" className="hover:underline">Inicio</Link> 
+      <Link to="/peliculas" className="hover:underline">Películas</Link>
+      <Link to="/interpretes" className="hover:underline">Intérpretes</Link>
+      <Link to="/admin" className="hover:underline">Admin</Link>
     </nav>
 
-    {/* Menú hamburguesa sólo visible para pantallas pequeñas controlado por el estado */}
-    <nav className={`absolute top-16 left-0 w-full bg-green-900 flex flex-col p-4 gap-4 md:hidden transition-all ${open ? "block" : "hidden"}`}
->
-                <NavLink to="/" onClick={() => setOpen(false)}>Inicio</NavLink>
-                <NavLink to="/peliculas" onClick={() => setOpen(false)}>Películas</NavLink>
-                <NavLink to="/interpretes" onClick={() => setOpen(false)}>Intérpretes</NavLink>
+    {/* Desplegable del menú hamburguesa */}
+    <nav id ="menu-movil" className={`absolute top-16 left-0 w-full bg-white flex flex-col p-4 gap-4 md:hidden 
+      transition-all ${open ? "block" : "hidden"}`} aria-label="Menú para móvil">
+                <NavLink to="/" className="hover:underline" onClick={() => setOpen(false)} >Inicio</NavLink>
+                <NavLink to="/peliculas"  className="hover:underline" onClick={() => setOpen(false)}>Películas</NavLink>
+                <NavLink to="/interpretes"  className="hover:underline" onClick={() => setOpen(false)}>Intérpretes</NavLink>
+                <NavLink to="/admin"  className="hover:underline" onClick={() => setOpen(false)}>Admin</NavLink>
             </nav>
-    );
-  </>
+  </header>
+  );
 }
 
 export default Navbar;

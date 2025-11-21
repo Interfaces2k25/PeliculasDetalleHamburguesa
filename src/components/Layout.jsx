@@ -1,5 +1,5 @@
-function Contenedor({ children }) {
-
+function Layout({ children }) {
+// Contenedor para que las Card se alineen en el centro de la pantalla
   return (
     <>
       <main
@@ -16,4 +16,4 @@ function Contenedor({ children }) {
   )
 }
 
-export default Contenedor
+export default Layout

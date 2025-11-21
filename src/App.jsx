@@ -2,23 +2,20 @@ import { Routes } from "react-router-dom"
 import { Route } from "react-router-dom"
 import Navbar from "./components/Navbar.jsx"
 
-import Contenedor from "./components/Contenedor.jsx"
-import Card from "./components/Card.jsx"
+import Layout from "./components/Layout.jsx"
 import Interprete from "./pages/Interprete.jsx"
 import Pelicula from "./pages/Peliculas.jsx"
 import Inicio from "./pages/Inicio";
 import Admin from "./pages/Admin";
-import ErrorPage from "./pages/ErrorPage";
 import DetallePelicula from "./pages/DetallePelicula.jsx"
 import DetalleInterprete from "./pages/DetalleInterprete.jsx"
 
 function App() {
   return (
     <>
-
       <Navbar></Navbar>
 
-      <Contenedor>
+      <Layout>
         <Routes>
           {/* <Route element={<Contenedor />}> */}
             <Route path="/" element={<Inicio />} />
@@ -31,7 +28,7 @@ function App() {
 
           {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
-      </Contenedor>
+      </ Layout>
 
     </>
   )
