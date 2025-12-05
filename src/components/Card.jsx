@@ -27,7 +27,6 @@ function Card(props) {
             </Link>
         </article>
     )
-
 }
 
 export default Card;
