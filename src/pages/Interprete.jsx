@@ -1,17 +1,28 @@
+import { useState, useMemo } from "react"
+
 import peliculas from "../data/peliculas"
+
 import Card from "../components/Card.jsx"
-import { useState } from "react"
 import SearchBar from "../components/SearchBar.jsx"
-import { useMemo } from "react"
+
 
 function Interprete() {
-  // Crear un array con todos los actores
-  const todosLosActores = peliculas.flatMap(p => p.actores);
-  const [searchTerm, setSearchTerm] = useState(""); //Guardar el texto que el usuario introduce en el buscador
+const [searchTerm, setSearchTerm] = useState(""); //Guardar el texto que el usuario introduce en el buscador
 
-    // Usamos useMemo para memorizar la lista filtrada.
+  // Usamos useMemo para memorizar la lista filtrada.
   // Solo se recalcula si 'searchTerm' cambia.
   const filteredInterpretes = useMemo(() => {
+
+    // Crear un array con todos los actores
+    const todosLosActores = peliculas.flatMap((pelicula) =>
+      pelicula.actores.map((actor, idInterprete) => ({
+        ...actor,
+        idPelicula: pelicula.id, // Necesario para el Link
+        idInterprete: idInterprete, // Necesario para el Link
+        esNota10: pelicula.nota === 10, // Ejemplo de dato adicional
+      }))
+    );
+
     if (!searchTerm) {
       return todosLosActores;
       // Si no hay término, devuelve la lista completa
@@ -22,7 +33,7 @@ function Interprete() {
       actor.nombre.toLowerCase().includes(lowerCaseSearchTerm)
     );
   }, [searchTerm]);
-    
+
 
   return (
     <>
@@ -43,13 +54,13 @@ function Interprete() {
       {/* MOSTRAR INTÉRPETES */}
       <div className="w-full mx-auto px-4 flex flex-wrap gap-6 justify-center">
         {filteredInterpretes.length > 0 ? (
-          filteredInterpretes.map((actor, idInterprete) => (
+          filteredInterpretes.map((actor, index) => (
             <Card
-              key={idInterprete}
+              key={index}
               nombre={actor.nombre}
               foto={actor.imagen}
               //Ruta al detalle del intérprete
-              to={`/interpretes/${idInterprete}`} >
+              to={`/interpretes/${index}`} >
               {actor.biografia}
             </Card>
           ))
